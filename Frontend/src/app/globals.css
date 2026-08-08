@@ -2,7 +2,36 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #1e293b;
+  --foreground: #0f172a;
+  --sidebar-bg: #f8fafc;
+  --sidebar-border: #e2e8f0;
+  --bubble-ai-bg: #ffffff;
+  --bubble-ai-border: #e2e8f0;
+  --bubble-ai-color: #334155;
+  --input-bg: #ffffff;
+  --input-border: #cbd5e1;
+  --input-color: #0f172a;
+  --text-slate: #64748b;
+  --btn-sidebar-bg: #ffffff;
+  --btn-sidebar-hover: #f1f5f9;
+  --btn-sidebar-color: #334155;
+}
+
+.dark {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --sidebar-bg: #020617;
+  --sidebar-border: #1e293b;
+  --bubble-ai-bg: #1e293b;
+  --bubble-ai-border: #334155;
+  --bubble-ai-color: #cbd5e1;
+  --input-bg: #1e293b;
+  --input-border: #475569;
+  --input-color: #f8fafc;
+  --text-slate: #94a3b8;
+  --btn-sidebar-bg: #1e293b;
+  --btn-sidebar-hover: #334155;
+  --btn-sidebar-color: #cbd5e1;
 }
 
 body {
@@ -12,6 +41,13 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+}
+
+/* Smooth transitions for theme toggles */
+body, aside, main, header, div, input, button, select, h1, h2, h3, p {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Custom styles */
