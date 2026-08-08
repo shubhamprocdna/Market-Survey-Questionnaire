@@ -11,9 +11,23 @@ def main():
     backend_dir = os.path.join(os.getcwd(), "Backend")
     print("Starting FastAPI backend on port 8000...")
     
+    is_windows = platform.system() == "Windows"
+    
+    # Determine the python binary path
+    if is_windows:
+        python_bin = "python"
+    else:
+        # Use absolute system paths on Linux to avoid search PATH conflicts with the broken virtualenv (.venv)
+        if os.path.exists("/usr/bin/python3"):
+            python_bin = "/usr/bin/python3"
+        elif os.path.exists("/usr/bin/python"):
+            python_bin = "/usr/bin/python"
+        else:
+            python_bin = "python3"
+
     # We set the working directory to Backend so uvicorn finds the app module
     backend_process = subprocess.Popen(
-        ["python", "-m", "uvicorn", "app.main:app", "--host", "127.0.0.1", "--port", "8000"],
+        [python_bin, "-m", "uvicorn", "app.main:app", "--host", "127.0.0.1", "--port", "8000"],
         cwd=backend_dir
     )
 
@@ -23,8 +37,6 @@ def main():
     # 3. Determine the frontend port (Databricks port or local default 3000)
     port = os.environ.get("DATABRICKS_APP_PORT", "3000")
     print(f"Starting Next.js frontend on port {port} (binding to 0.0.0.0)...")
-
-    is_windows = platform.system() == "Windows"
     npm_bin = "npm.cmd" if is_windows else "npm"
     frontend_dir = os.path.join(os.getcwd(), "Frontend")
 
