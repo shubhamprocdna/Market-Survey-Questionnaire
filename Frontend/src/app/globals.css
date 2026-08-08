@@ -52,9 +52,7 @@ body, aside, main, header, div, input, button, select, h1, h2, h3, p {
 
 /* Custom styles */
 .brand-gradient {
-  background: linear-gradient(135deg, #0073CF 0%, #1E3A8A 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #0073CF;
   display: inline-block;
 }
 
