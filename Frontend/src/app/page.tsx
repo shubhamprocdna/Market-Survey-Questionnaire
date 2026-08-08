@@ -26,7 +26,7 @@ Tell me the study objective, disease area, target audience, or any specific requ
 
   // Check backend health on mount
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/health')
+    fetch('/api/health')
       .then((res) => {
         if (res.ok) {
           setBackendOnline(true);
@@ -56,7 +56,7 @@ Tell me the study objective, disease area, target audience, or any specific requ
     setLoading(true);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/chat', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

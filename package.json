@@ -1,0 +1,10 @@
+{
+  "name": "market-survey-questionnaire",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm install --prefix Frontend",
+    "build": "npm run build --prefix Frontend",
+    "start": "python start.py"
+  }
+}
